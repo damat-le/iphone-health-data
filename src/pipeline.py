@@ -80,8 +80,8 @@ if __name__ == '__main__':
 
     from argparse import ArgumentParser
     parser = ArgumentParser(usage='python -m src.pipeline -i <in_data> -o <out_data> -f <freq>')
-    parser.add_argument('-i', '--in_fn', type=str)
-    parser.add_argument('-o', '--out_fn', type=str)
+    parser.add_argument('-i', '--in_fn', type=str, help='Path to the input data file')
+    parser.add_argument('-o', '--out_fn', type=str, help='Path to the output data file')
     parser.add_argument('-f', '--freq', type=str, default='D', help='Resampling frequency. Valid values are those compatible with pandas.DataFrame.resample method. See https://pandas.pydata.org/docs/reference/api/pandas.DataFrame.resample.html')
     args = parser.parse_args()
 
