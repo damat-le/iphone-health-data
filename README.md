@@ -76,8 +76,10 @@ middleDate,step,distance,floor
 python -m src.pipeline -i <in_data> -o <out_data> -f <freq>
 
 options:
-  -h, --help           show this help message and exit
-  -i, --in_fn IN_FN    Path to the input data file
-  -o, --out_fn OUT_FN  Path to the output data file
-  -f, --freq FREQ      Resampling frequency. Valid values are those compatible with pandas.DataFrame.resample method. See https://pandas.pydata.org/pandas-docs/stable/user_guide/timeseries.html#offset-aliases
+  -h, --help            show this help message and exit
+  -i, --in_fn IN_FN     Path to the input data file (XML format)
+  -o, --out_fn OUT_FN   Path to the output data file (CSV format)
+  -f, --freq FREQ       Resampling frequency. Valid values are those compatible with pandas.DataFrame.resample method. See https://pandas.pydata.org/pandas-docs/stable/user_guide/timeseries.html#offset-aliases
+  -l, --log_level LOG_LEVEL
+                        Logging level (e.g., 'DEBUG', 'INFO', 'WARNING', 'ERROR', 'CRITICAL')
 ```
