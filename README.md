@@ -79,6 +79,5 @@ options:
   -h, --help           show this help message and exit
   -i, --in_fn IN_FN    Path to the input data file
   -o, --out_fn OUT_FN  Path to the output data file
-  -f, --freq FREQ      Resampling frequency. Valid values are those compatible with pandas.DataFrame.resample method. See
-                       https://pandas.pydata.org/docs/reference/api/pandas.DataFrame.resample.html
+  -f, --freq FREQ      Resampling frequency. Valid values are those compatible with pandas.DataFrame.resample method. See https://pandas.pydata.org/pandas-docs/stable/user_guide/timeseries.html#offset-aliases
 ```
