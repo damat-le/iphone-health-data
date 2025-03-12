@@ -56,7 +56,7 @@ def process_cols(df, target_cols: dict, col2dtype: dict, freq='D'):
             .to_frame()
     return pd.concat(data.values(), axis=1)
 
-def pipeline(in_fn, out_fn, freq='D'):
+def pipeline(in_fn, freq='D'):
     logging.info(f'Loading raw data from {in_fn}')
     df = load_raw_data(in_fn)
     logging.info('Parsing datetime columns')
@@ -73,8 +73,7 @@ def pipeline(in_fn, out_fn, freq='D'):
         col2dtype,
         freq
     )
-    logging.info(f'Saving processed data to {out_fn}')
-    df.to_csv(out_fn, index=True)
+    
     return df
 
 if __name__ == '__main__':
@@ -86,4 +85,6 @@ if __name__ == '__main__':
     parser.add_argument('-f', '--freq', type=str, default='D', help='Resampling frequency. Valid values are those compatible with pandas.DataFrame.resample method. See https://pandas.pydata.org/docs/reference/api/pandas.DataFrame.resample.html')
     args = parser.parse_args()
 
-    _ = pipeline(args.in_fn, args.out_fn, args.freq)
+    df = pipeline(args.in_fn, args.freq)
+    logging.info(f'Saving processed data to {args.out_fn}')
+    df.to_csv(args.out_fn, index=True)
